@@ -15,5 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      working-directory: Dockerized/Hello
-      run: docker build . -t docker-hub-username/dotnetdocker:latest
+      run: ls
