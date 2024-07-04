@@ -37,11 +37,10 @@ jobs:
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
-        password: ${{ secrets.   }}
+        password: ${{ secrets.SSH_PASSWORD   }}
         script: 
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dotnetdocker:latest 
           docker stop dotnetdocker || true
           docker rm dotnetdocker || true
           docker run -d -p 80:80 --name hello ${{ secrets.DOCKERHUB_USERNAME }}/dotnetdocker:latest 
 
-          
