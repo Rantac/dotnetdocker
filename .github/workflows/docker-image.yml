@@ -27,3 +27,21 @@ jobs:
     - name: Push the image to Docker Hub
       run: docker push kindayin12/dotnetdocker:latest
 
+#deploy stage
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Pull the image to VM
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.   }}
+        script: 
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dotnetdocker:latest 
+          docker stop dotnetdocker || true
+          docker rm dotnetdocker || true
+          docker run -d -p 80:80 --name hello ${{ secrets.DOCKERHUB_USERNAME }}/dotnetdocker:latest 
+
+          
