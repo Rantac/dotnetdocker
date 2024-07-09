@@ -43,11 +43,12 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
            echo ${{ secrets.ACR_PASSWORD }} | docker login ${{ secrets.AZURE_URL }} -u ${{ secrets.ACR_USERNAME }} --password-stdin
-           docker pull myappcontainer.azurecr.io/dotnetdocker:latest
+           sudo docker pull myappcontainer.azurecr.io/dotnetdocker:latest
+           sudo docker stop dotnetdocker || true
+           sudo docker rm dotnetdocker || true
+           sudo docker run -d -p 80:5000`` --name dotnetdocker myappcontainer.azurecr.io/dotnetdocker:latest
         #docker login ${{ secrets.AZURE_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}   
            
-
-
 
 
 
