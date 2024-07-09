@@ -42,8 +42,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
-           pwd
-        #  docker login ${{ secrets.AZURE_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}   
+           docker login ${{ secrets.AZURE_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}   
         #docker pull myappcontainer.azurecr.io/dotnetdocker:latest
 
 
