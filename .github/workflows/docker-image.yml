@@ -29,7 +29,21 @@ jobs:
       #run: docker push dotnetdocker1.azurecr.io/dotnetdocker:latest
       run: docker push myappcontainer.azurecr.io/dotnetdocker:latest
       
-        
+  #deploy to ec2 server over ssh
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Pull the image to VM
+      uses: appleboy/ssh-action@v0.1.6
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          docker login ${{ secrets.AZURE_URL }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}   
+          docker pull myappcontainer.azurecr.io/dotnetdocker:latest
 
 
 
