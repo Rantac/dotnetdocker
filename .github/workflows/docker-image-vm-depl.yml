@@ -1,8 +1,8 @@
 name: Docker Image CI
 
-on:
-  push:
-    branches: [ "master" ]
+# on:
+#   push:
+#     branches: [ "master" ]
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Build the Docker image
+    - name: Build the Docker image 
       working-directory: testingweb
      # run: docker build . -t dotnetdocker1.azurecr.io/dotnetdocker:latest
       run: docker build . -t myappcontainer.azurecr.io/dotnetdocker:latest
