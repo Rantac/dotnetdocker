@@ -24,5 +24,6 @@ jobs:
     - name: Build the Docker image 
       working-directory: testingweb
       run: |
-        docker build . -t 992382623654.dkr.ecr.us-east-1.amazonaws.com/myappcontainer:latest
-        docker push 992382623654.dkr.ecr.us-east-1.amazonaws.com/myappcontainer:latest
+        docker build . -t 381491834376.dkr.ecr.us-east-1.amazonaws.com/myappcontainer:latest
+        docker push 381491834376.dkr.ecr.us-east-1.amazonaws.com/myappcontainer:latest
+        
