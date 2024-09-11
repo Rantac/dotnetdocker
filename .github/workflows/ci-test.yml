@@ -16,3 +16,8 @@ jobs:
     - name: Testing
       run: echo "CI test complete"
 
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        path: ./ # Example of what to upload, adjust this path to your actual build files

@@ -1,4 +1,4 @@
-name: CD Pipeline 
+name: CD Pipeline
 
 on:
   workflow_run:
@@ -18,10 +18,10 @@ jobs:
         name: build
 
     - name: Deploy to Pre-production
-      run: echo "Deploying to pre-production..." # Replace this with actual deploy commands
+      run: echo "Deploying to pre-production..." # Replace with actual deployment commands
 
     - name: Deploy to Production (manual trigger)
-      if: ${{ github.ref == 'refs/heads/main' }} # Optionally, limit it to main branch
-      run: echo "Deploying to production..." # Replace this with actual deploy commands
+      if: ${{ github.ref == 'refs/heads/main' }}
+      run: echo "Deploying to production..." # Replace with actual deployment commands
       env:
         ENV: production
